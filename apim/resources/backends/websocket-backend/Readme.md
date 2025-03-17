@@ -4,9 +4,9 @@
 ## Prerequisites
 
 1. **Node.js**
-   - Ensure you have Node.js version 16 installed to manage the WebSocket server. Follow these steps if you need to install it:
+   - Ensure you have Node.js version 22 installed to manage the WebSocket server. Follow these steps if you need to install it:
      1. Visit the [Node.js Download Page](https://nodejs.org/en/).
-     2. Look for the "LTS" version labeled as "16.x.x".
+     2. Look for the "LTS" version labeled as "22.x.x".
      3. Click on the download link and follow the installation instructions provided on the website.
 
 2. **wscat**
