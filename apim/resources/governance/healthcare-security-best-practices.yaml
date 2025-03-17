@@ -1,0 +1,38 @@
+rules:
+  api-no-unlimited-business-plan:
+    description: API should not have an unlimited business plan.
+    message: API should not have an unlimited business plan.
+    severity: error
+    given: $.data.policies.*
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: Unlimited
+  api-no-insecure-transports:
+    description: API should not have insecure transports.
+    message: API should not have insecure transports.
+    severity: error
+    given: $.data.transport.*
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: http$
+  api-no-unlimited-throttling-policy:
+    description: API should not have an unlimited throttling policy.
+    message: API should not have an unlimited throttling policy.
+    severity: error
+    given: $.data.apiThrottlingPolicy
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ^Unlimited$
+  api-resources-security-required:
+    description: Checks that security is enabled for all resources.
+    message: Security is not enabled for all resources.
+    severity: error
+    given: $.data.operations.*
+    then:
+      field: authType
+      function: pattern
+      functionOptions:
+        notMatch: None
