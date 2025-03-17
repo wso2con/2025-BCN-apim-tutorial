@@ -20,7 +20,7 @@ Please follow guide to installing an APK with Control Plane [Setup](https://apk.
 
 Prior to invoking the API, you will need to have this backend up. 
 
-We have provided the file containing this sample backend [here](/resources/backend.yaml). Download it and create the backend service using the following command.
+We have provided the file containing this sample backend [here](/apk/resources/backend.yaml). Download it and create the backend service using the following command.
 
 ```
 kubectl apply -f backend.yaml -n backend
@@ -49,7 +49,7 @@ kubectl get pods -n backend
 
 ## Step 3 - Generate APK configuration file from the OpenAPI definition
 
-1. Save and download the sample [CommuteService.json](resources/CommuteService) file. This is the OAS definition of the API that we are going to deploy in Kubernetes Gateway.
+1. Save and download the sample [CommuteService.json](/apk/resources/CommuteService.json) file. This is the OAS definition of the API that we are going to deploy in Kubernetes Gateway.
 
 Apart from the above API definition file, we also need an `apk-conf` file that defines the configurations and metadata for this API. We have a configuration service that can be used to generate this apk-conf file when the OpenAPI definition is provided. 
 
@@ -154,7 +154,7 @@ Then go to subscription and subcribe to the API.
 Tryout API
 Go to tryout console and generate a production token with test token button.
 
-[![tokenGen](resources/tokengen.png)](resources/tokengen.png)
+[![tokenGen](resources/tokenGen.png)](resources/tokenGen.png)
 
 
 Finally Invoke API
