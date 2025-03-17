@@ -1,31 +1,19 @@
 # 2025-BCN-apim-tutorial
 
-# API Management Tutorial
+# API Management Lab
 
-## Overview
+## Session 1: AI-Driven API Design, Development, and Consumption with Enhanced Governance
 
-In today's digital world, managing APIs is crucial for organizations aiming to succeed in a connected environment. This tutorial explores how to use API Management (APIM) to drive innovation, collaboration, and seamless experiences. By following the tutorial, participants learn practical ways to use APIM Manager to manage APIs throughout their lifecycle, effective design, ensure security and compliance, improve performance, and create a better experience for developers. 
-## Features
+As APIs continue to evolve, AI is transforming how they are designed, consumed, and governed. By integrating AI-driven capabilities, organizations can streamline workflows, enhance automation, and ensure compliance—making API management more intelligent, efficient, and adaptive.
 
-- Understand the importance of API management in digital transformation.
-- Learn how to design, deploy, and manage APIs throughout their lifecycle.
-- Explore best practices for API design API security and developer experience.
-- Gain practical insights into leveraging Kubernetes-native API Management (APIM) for scalability and flexibility.
+This session explores how AI can be applied across the API lifecycle, from intelligent design recommendations to optimizing consumption patterns and enforcing governance policies. Through real-world examples, we will demonstrate how AI enhances API interactions, automates compliance, strengthens security, and integrates seamlessly with development workflows.
 
-# APK Tutorial
+By the end of this session, attendees will gain valuable insights into leveraging AI for API management, balancing automation with governance, and building smarter, more secure API ecosystems. Whether you're an API developer, architect, or platform engineer, this session will provide practical strategies for the future of AI-enhanced API management.
 
-## Overview
+## Session 2: Unified Management of Ingress and Egress Across Multiple API Gateways
 
-Introducing APK, the API Platform for Kubernetes, a cutting-edge API management solution designed to leverage the power of Kubernetes for seamless and scalable deployments. APK harnesses Kubernetes' native features, enabling automatic scaling based on load and configurable parameters, utilizing rich Kubernetes metrics.
+In today’s multi-cloud, multi-gateway world, organizations struggle to apply consistent governance across all their APIs—both ingress APIs exposed to consumers and egress APIs calling external services like AI platforms and SaaS applications. This hands-on lab shows you how to solve that with a unified control plane that manages API gateways across environments, including Kubernetes, universal, immutable, and federated gateways (AWS, Solace).
 
-At the core of APK's robust gateway solution is the meticulously selected Envoy technology, known for exceptional performance, lightweight nature, and perfect compatibility within the APK ecosystem. APK extends beyond traditional gateways with purpose-built extensions addressing specific API management use cases. Some of these extensions have been contributed back to the Envoy community, reflecting our commitment to collaborative innovation.
+You’ll see how a pluggable agent framework makes it easy to onboard any gateway supporting Kubernetes Gateway API, and how to enforce policies, observability, and analytics consistently across all your traffic—inbound and outbound. The lab will also dive deep into AI egress governance, showcasing features like model routing, prompt templating, semantic caching, and AI guardrails when connecting to OpenAI, Azure OpenAI, and Mistral.
 
-WSO2 APK adheres to the Kubernetes Gateway API specification, an open-source project managed by the SIG-NETWORK community. This specification introduces vital resources such as GatewayClass, Gateway, HTTPRoute, TCPRoute, and Service, augmenting service networking capabilities in Kubernetes. By adhering to this specification, WSO2 APK seamlessly integrates with Kubernetes service networking, leveraging expressive and extensible interfaces to enhance API management functionality within Kubernetes deployments.
-
-## Characteristics of APK
-
-- APK's microservices architecture offers advantages such as easy scalability and seamless upgrades, harnessing the benefits of the architecture for agility and flexibility.
-- The separation of the control plane and data plane in APK allows users to integrate any control plane of their choice, providing maximum flexibility and customization.
-- APK is an evolving open-source solution that delivers advanced API management capabilities and is designed for cloud-native architectures, seamlessly integrating with Kubernetes.
-- With seamless CI/CD integration, APK supports a streamlined GitOps approach for efficient deployment and management of APIs.
-- APK aims to provide API marketplace capabilities, enabling sharing, discovery, and reusability of APIs while focusing on efficient governance and administration.
+If you’re looking for a future-proof way to manage all your APIs across diverse platforms, environments, and use cases—this is the session for you.
