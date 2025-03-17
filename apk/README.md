@@ -4,11 +4,11 @@
 2. [Install the Kubernetes Client (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 3. [Install Helm](https://helm.sh/docs/intro/install/).
 
-To successfully deploy WSO2 APK in your environment, it's essential to meet certain minimum requirements. These requirements ensure that the deployment process is smooth, and the platform operates efficiently.
+To successfully deploy WSO2 Kubernetes Gateway in your environment, it's essential to meet certain minimum requirements. These requirements ensure that the deployment process is smooth, and the platform operates efficiently.
 
 To check the minimun requirement according to your setup follow [Minimum Requirement](https://apk.docs.wso2.com/en/latest/setup/prerequisites/).
 
-# Install APK With Control Plane
+# Install Kubernetes Gateway Control Plane
 
 Please follow guide to installing an APK with Control Plane [Setup](https://apk.docs.wso2.com/en/latest/setup/install-with-cp/)
 
@@ -45,11 +45,11 @@ kubectl get pods -n backend
 
     | IP        | Domain name         |
     | --------- | ------------------- |
-    | 127.0.0.1 | api.am.wso2.com default.gw.wso2.com idp.am.wso2.com carbon.super.gw.wso2.com  |
+    | 127.0.0.1 | api.am.wso2.com default.gw.wso2.com idp.am.wso2.com carbon.super.gw.wso2.com  am.wso2.com|
 
 ## Step 3 - Generate APK configuration file from the OpenAPI definition
 
-1. Save and download the sample [HotelReservationService.json](resources/HotelReservationService) file. This is the OAS definition of the API that we are going to deploy in APK.
+1. Save and download the sample [CommuteService.json](resources/CommuteService) file. This is the OAS definition of the API that we are going to deploy in Kubernetes Gateway.
 
 Apart from the above API definition file, we also need an `apk-conf` file that defines the configurations and metadata for this API. We have a configuration service that can be used to generate this apk-conf file when the OpenAPI definition is provided. 
 
@@ -58,53 +58,53 @@ Apart from the above API definition file, we also need an `apk-conf` file that d
 
 
 ```
-curl -k --location 'https://api.am.wso2.com:9095/api/configurator/1.1.0/apis/generate-configuration' --header 'Host: api.am.wso2.com' --form 'definition=@"./HotelReservationService.json"'
+curl -k --location 'https://api.am.wso2.com:9095/api/configurator/1.3.0/apis/generate-configuration' --header 'Host: api.am.wso2.com' --form 'definition=@"./CommuteService.json"'
 ```
 
 3. Following response coming from config genarator service.
 ```
 ---
-name: "Hotel Reservation API"
-basePath: "/SG90ZWwgUmVzZXJ2YXRpb24gQVBJMS4wLjA"
+name: "Commute"
+basePath: "/Q29tbXV0ZTEuMC4w"
 version: "1.0.0"
 type: "REST"
 defaultVersion: false
 subscriptionValidation: false
 endpointConfigurations:
-    production:
-        endpoint: "http://hotel-service.backend:82"
+  production:
+  - endpoint: "http://booking-service.backend:81"
 operations:
-- target: "/reservation"
-    verb: "GET"
-    secured: true
-    scopes: []
-- target: "/reservation"
-    verb: "POST"
-    secured: true
-    scopes: []
-- target: "/reservation/{id}"
-    verb: "PUT"
-    secured: true
-    scopes: []
-- target: "/reservation/{id}"
-    verb: "DELETE"
-    secured: true
-    scopes: []
+- target: "/booking"
+  verb: "GET"
+  secured: true
+  scopes: []
+- target: "/booking"
+  verb: "POST"
+  secured: true
+  scopes: []
+- target: "/booking/{id}"
+  verb: "PUT"
+  secured: true
+  scopes: []
+- target: "/booking/{id}"
+  verb: "DELETE"
+  secured: true
+  scopes: []
 ```
 
 
-4. You will get the apk-conf file content as the response. Save this content into a file named `HotelReservation.apk-conf`.
+4. You will get the apk-conf file content as the response. Save this content into a file named `Commute.apk-conf`.
 
 ## Step 4 - Generate K8s custom resources and Deploy
 
 By invoking the Configuration Service, you can generate Kubernetes artifacts specifically tailored for APIs. These artifacts can be applied to a Kubernetes cluster using standard command-line tools like kubectl. 
 
 ```
-curl --location 'https://api.am.wso2.com:9095/api/configurator/1.0.0/apis/generate-k8s-resources' \
+curl --location 'https://api.am.wso2.com:9095/api/configurator/1.3.0/apis/generate-k8s-resources' \
 --header 'Content-Type: multipart/form-data' \
 --header 'Accept: application/zip' \
---form 'apkConfiguration=@"/Users/user/EmployeeService.apk-conf"' \
---form 'definitionFile=@"/Users/user/EmployeeServiceDefinition.json"' \
+--form 'apkConfiguration=@"/Users/user/Commute.apk-conf"' \
+--form 'definitionFile=@"/Users/user/CommuteService.json"' \
 -k --output ./api-crds.zip
 ```
 
@@ -122,7 +122,7 @@ Once you have generated your K8s artifacts, the next step is to apply them to th
     kubectl apply -f <path_to_extracted_zip_file> -n apk
     
 
-4. Execute the command below. You will be able to see that the `EmployeeServiceAPI` is successfully deployed as shown in the image.
+4. Execute the command below. You will be able to see that the `CommuteServiceAPI` is successfully deployed as shown in the image.
 
     ```
     kubectl get apis -n apk
@@ -139,11 +139,11 @@ Login to the Publisher Console (https://am.wso2.com/publisher) of the APK Contro
 
 you can see the deploy Hotel reservation API as below.
 
-[![api](resources/api.png)](resources/api.png)
+[![api](resources/list.png)](resources/list.png)
 
 Go into the API and publish API.
 
-[![publish](resources/publish.png)](resources/publish.png)
+[![publish](resources/deploy.png)](resources/deploy.png)
 
 
 Go to developer portal and you can see the API There.
@@ -154,7 +154,7 @@ Then go to subscription and subcribe to the API.
 Tryout API
 Go to tryout console and generate a production token with test token button.
 
-[![tokenGen](resources/tokenGen.png)](resources/tokenGen.png)
+[![tokenGen](resources/tokengen.png)](resources/tokengen.png)
 
 
 Finally Invoke API
