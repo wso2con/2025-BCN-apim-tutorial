@@ -208,46 +208,6 @@ enableSingupWorkflow() {
 </soap:Envelope>' -k
 }
 ####################################################################################################
-# create tenants
-echo "Creating tenant quantis.com"
-create_tenant "admin" "quantis.com" "admin@quantis.com"
-sleep 3
-echo "Adding sample users to quantis.com domain"
-addUserWithRole "admin@quantis.com" "admin" "andy" "Internal/creator" "Internal/publisher"
-addUserWithRole "admin@quantis.com" "admin" "bob" "Internal/subscriber" "Internal/everyone"
-addUserWithRole "admin@quantis.com" "admin" "logan" "Internal/subscriber" "Internal/everyone"
-addUserWithRole "admin@quantis.com" "admin" "sindy" "Internal/subscriber" "Internal/everyone"
-addUserWithRole "admin@quantis.com" "admin" "kate" "Internal/subscriber" "Internal/everyone"
-addUserWithRole "admin@quantis.com" "admin" "apiprovider" "Internal/creator" "Internal/publisher"
-addUserWithRole "admin@quantis.com" "admin" "devuser" "Internal/subscriber" "Internal/everyone"
-echo "Enable signup and workflow"
-#enableSignup "admin@quantis.com" "admin"
-enableSingupWorkflow "admin@quantis.com" "admin"
-sleep 3
-###
-echo "Creating tenant coltrain.com"
-create_tenant "admin" "coltrain.com" "admin@coltrain.com"
-sleep 3
-echo "Adding roles to coltrain.com domain"
-addRole "admin@coltrain.com" "admin" "schedule_admin"
-addRole "admin@coltrain.com" "admin" "coltrain_employee"
-echo "Adding sample users to coltrain.com domain"
-addUserWithRole "admin@coltrain.com" "admin" "bill" "Internal/creator" "Internal/publisher"
-addUserWith3Role "admin@coltrain.com" "admin" "george" "Internal/subscriber" "Internal/everyone" "coltrain_employee"
-addUserWith3Role "admin@coltrain.com" "admin" "jenny" "Internal/subscriber" "schedule_admin" "coltrain_employee"
-addUserWithRole "admin@coltrain.com" "admin" "apiprovider" "Internal/creator" "Internal/publisher"
-addUserWithRole "admin@coltrain.com" "admin" "devuser" "Internal/subscriber" "Internal/everyone"
-sleep 3
-###
-echo "Creating tenant railco.com"
-create_tenant "admin" "railco.com" "admin@railco.com"
-sleep 3
-echo "Adding sample users to railco.com domain"
-addUserWithRole "admin@railco.com" "admin" "jill" "Internal/creator" "Internal/publisher"
-addUserWithRole "admin@railco.com" "admin" "tom" "Internal/subscriber" "Internal/everyone"
-addUserWithRole "admin@railco.com" "admin" "apiprovider" "Internal/creator" "Internal/publisher"
-addUserWithRole "admin@railco.com" "admin" "devuser" "Internal/subscriber" "Internal/everyone"
-sleep 3
 
 echo "Adding sample users to super tenant"
 addRole "admin" "admin" "station-manager"
