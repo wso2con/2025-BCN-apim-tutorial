@@ -1,6 +1,4 @@
-# 2025-BCN-apim-tutorial
-
-# API Management Lab
+# API Management Labs - 2025 WSO2CON BCN
 
 ## Session 1: AI-Driven API Design, Development, and Consumption with Enhanced Governance
 
