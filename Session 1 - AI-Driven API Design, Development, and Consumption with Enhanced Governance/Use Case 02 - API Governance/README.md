@@ -63,7 +63,7 @@ Now that we've created the API and applied essential QoS policies like security 
    - **Rulesets**: Select the ruleset created in the previous step.
 4. Click **Create** to finalize the policy.
 
-## Step 4: API Compliance Dashboard
+## Step 4: API Compliance on Deployment
 
 1. Log in to the API Publisher at: `https://<hostname>:9443/publisher` as **larry** using the assigned password. 
 2. Select the **Product Mgt API** that was created and navigate to the **Basic Info** section under **Portal Configurations**.
