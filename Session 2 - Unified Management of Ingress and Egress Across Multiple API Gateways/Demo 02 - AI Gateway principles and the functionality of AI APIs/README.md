@@ -17,51 +17,28 @@
 - Restricts token utilization to control costs and ensure fair usage.
 - Supports multiple endpoints and keys.
 
----
+## Introduce the AI Gateway (Model Load Balancing & Failover)
 
-## Step 1: Introduce the AI Gateway (Model Load Balancing & Failover)
-### Goal:
-Show how the AI Gateway intelligently distributes traffic.
+Goal: Show how the AI Gateway intelligently distributes traffic.
+### Demo Outline:
 
-### Demo:
 Deploy the AI Gateway, which integrates:
 - **GPT-4o** (high accuracy, high cost, slower).
 - **GPT-4o-mini** (faster, cheaper, suitable for most tasks).
 
-**Configure a load balancing policy:**
+Configure a load balancing policy:
 - 50% of requests go to GPT-4o.
 - 50% of requests go to GPT-4o-mini.
 
 Send API requests and show real-time balanced traffic distribution.
 
----
 
-## Step 2: Failover Handling When a Model Goes Down
-### Goal:
-Show how the AI Gateway automatically redirects traffic if a model fails.
+## Failover Handling When a Model Goes Down
+
+Goal: Show how the AI Gateway automatically redirects traffic if a model fails.
 
 ### Demo:
 - Manually block GPT-4o API access (simulate an outage).
 - Show AI Gateway instantly redirecting traffic to GPT-4o-mini.
 - Open the AI Gateway logs to show real-time failover actions.
 
----
-
-## Step 3: Observability & Analytics
-### Goal:
-Show how the AI Gateway monitors API usage and costs.
-
-### Demo:
-- Open the **AI Analytics dashboard**.
-- Show:
-  - Request distribution (GPT-4o vs. GPT-4o-mini).
-  - Token usage distribution from load balancing.
-  - Latency trends per model.
-
----
-
-## Additional Requirements
-- **Onboard Mistral and OpenAI vendors** and populate analytics data.
-- **Additional Demos:**
-  - Easily integrate with LangChain and other SDKs since the spec is similar.
-  - Onboard Anthropic as a new vendor: [Onboarding Anthropic Claude](https://apim.docs.wso2.com/en/4.5.0/ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude/)
