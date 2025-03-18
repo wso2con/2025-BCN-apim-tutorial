@@ -6,6 +6,14 @@ This session explores how AI can be applied across the API lifecycle, from intel
 
 By the end of this session, you will gain valuable insights into leveraging AI for API management, balancing automation with governance, and building smarter, more secure API ecosystems. Whether you're an API developer, architect, or platform engineer, this session will provide practical strategies for the future of AI-enhanced API management.
 
+## Problem Statement
+
+**Viento Mart** is an online store managing a large catalog of products across multiple platforms, including a website and mobile app. They struggle with data consistency, manual inventory management, and the challenge of updating product details (price, stock, description) across channels in real-time.
+
+## Solution
+
+**Viento Mart** wants to modernize by implementing APIs for real-time synchronization of product details (description, price, stock) across platforms, ensuring seamless inventory management, consistency, and accuracy.
+
 ## Use Cases
 
 By following along this lab session, you will be covering the following use cases:
