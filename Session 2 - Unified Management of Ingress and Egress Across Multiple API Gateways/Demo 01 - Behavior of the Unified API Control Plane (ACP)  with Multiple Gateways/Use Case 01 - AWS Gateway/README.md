@@ -16,8 +16,8 @@ Before proceeding, ensure the following prerequisites are met:
 - Use the following credentials:  
 
   ```plaintext
-  Username: apiprovider  
-  Password: user123  
+  Username: admin
+  Password: admin
   ```  
 
 ### **2. Create a New API**  
@@ -55,8 +55,8 @@ Before proceeding, ensure the following prerequisites are met:
 - Use the following credentials:  
 
   ```plaintext
-  Username: devuser  
-  Password: user123  
+  Username: admin
+  Password: admin
   ```  
 
 ### **6. Create an Application in the Developer Portal**  
